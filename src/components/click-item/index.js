@@ -1,13 +1,23 @@
-import React from "react";
+import React, { Component } from "react";
+import "./style.css"
 
-function ClickItem(props) {
-    return (
-        <div className = "card">
-            <div className = "img-container">
-                <img alt={props.name} src={props.image} />
+class ClickItem extends Component {
+    state = {
+        clicked: false,
+    };
+
+    render() {
+        return (
+            <div className="container">
+                    <img 
+                        className="img-thumbnail" 
+                        alt={this.props.name} 
+                        src={this.props.image} 
+                        onClick={ () => this.props.handleOnClick(this) }
+                    />
             </div>
-        </div>
-    );
+        );
+    }
 }
 
 export default ClickItem;
